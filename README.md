@@ -16,10 +16,20 @@
 ## 特色功能
 
 - 用户注册与密码找回（验证邮箱），所有密码不可逆加密后存储
+![image](https://user-images.githubusercontent.com/75155322/185481346-498a819c-ef97-4c16-88c9-51d9976c58ff.png)
 - 教师，学生，管理员拥有不同权限
+![image](https://user-images.githubusercontent.com/75155322/185481401-b28cca3a-d1dc-4a70-8c57-970444b301ba.png)
 - 教师：对学生增删查改，展示自己所管理的学生信息
+![image](https://user-images.githubusercontent.com/75155322/185481525-d495faf7-fb4a-4210-83cb-ad7619034f6f.png)
 - 学生： 选择教师以参看教师所管理的学生信息，但是不能操作
+![image](https://user-images.githubusercontent.com/75155322/185482046-f9d05036-9837-49e6-be4e-4429264dc379.png)
 - 管理员：管理所有用户数据，可以新增、封禁、解封以及删除用户账号
+![image](https://user-images.githubusercontent.com/75155322/185481903-529186df-a4a5-4a63-8e60-c4f8d9ee95ce.png)
+
+## 使用协议
+仅供学习交流，请勿用于生产环境或商业用途 ~~也没人会想不开这么干~~
+
+请勿进行 Fork 以外的提供公开副本的行为
 
 ## 配置工作环境
 - 通过 `git clone` 或 `Download ZIP` 将项目下载到本地
