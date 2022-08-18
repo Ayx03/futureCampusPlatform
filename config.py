@@ -1,6 +1,6 @@
 import os
 
-domain = "http://localhost" #本地调试
+domain = "http://localhost"
 
 admin_entrance = "/phpyouradmin"
 
