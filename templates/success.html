@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<h2>验证邮箱完成，{{ action }}成功！</h2>
+<a class="btn btn-success" href= {{ url_for('login') }}>去登陆</a>
+{% endblock %}

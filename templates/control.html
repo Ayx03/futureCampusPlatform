@@ -1,0 +1,114 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}adminPanel(f.C.P){% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			</button>
+			<a href="/" class="navbar-brand">adminPanel(f.C.P)</a>
+		</div>
+		<div class="navbar-collapse collapse">				
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/">返回前台</a></li>
+				<li><a href="/logout">退出管理后台</a></li>
+				<li><a href="/admin/sendmail">邮件引擎测试</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav">
+				<li><a href="/admin/control">控制台</a></li>
+				<li><a href="/admin/add">新增用户</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+		<div class="alert alert-warning">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div class="table-responsive">
+		<center><h3>权限越大 责任越大 数据无价 谨慎操作</h3></center><br>
+	<table class="table table-bordered table-hover table-striped table-condensed">
+		<thead>
+			<th>用户 ID</th>
+<!--			id-->
+			<th>用户名</th>
+<!--			name-->
+			<th>注册邮箱</th>
+<!--			email-->
+			<th>加密后密码</th>
+			<th>用户类型</th>
+<!--			account_type-->
+			<th>激活码</th>
+<!--			active_code-->
+			<th>已激活</th>
+<!--			active_state-->
+			<th>学生数量</th>
+<!--			students_num-->
+			<th>封禁状态</th>
+<!--			frozen-->
+			<th>操作</th>
+		</thead>
+		<tbody>
+			{% for user in users %}
+			<tr>
+				<td>{{ user.id }}</td>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.password }}</td>
+				<td>{{ user.account_type }}</td>
+				<td>{{ user.active_code }}</td>
+				<td>{{ user.active_state }}</td>
+				<td>{{ user.students.count() }}</td>
+				<td>{% if user.banned %}已封禁{% else %}/{% endif %}</td>
+				<td>
+					<button class="btn btn-danger delete">删除</button>
+					<button class="btn btn-warning ban">{% if user.frozen %}解封{% else %}封禁{% endif %}</button>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+$(document).ready(function() {
+	$('.delete').click(function() {
+		if (confirm("真的要删除这个用户吗？\n该用户的所有数据将全部永久丢失！（真的很久！）") == true) {
+			$.post('/admin/remove', {id: $(this).parent().siblings().first().text()});
+			$(this).parent().parent().remove();
+		}
+	});
+
+	$('.ban').click(function() {
+		if ($($(this).parent().siblings()[8]).text() === '/') {
+			if (confirm("真的要封禁这个用户吗？\n该用户在被解封前将再也无法登录！") == true) {
+				$.post('/admin/ban', {id: $(this).parent().siblings().first().text()});
+				$(this).text('解封');
+				$($(this).parent().siblings()[8]).text('已封禁');
+			}
+		} else {
+			if (confirm("真的要解封这个用户吗？\n该用户将能继续登录未来学校平台！") == true) {
+				$.post('/admin/unban', {id: $(this).parent().siblings().first().text()});
+				$(this).text('封禁');
+				$($(this).parent().siblings()[8]).text('/');
+			}
+		}
+	});
+});
+</script>
+{% endblock %}

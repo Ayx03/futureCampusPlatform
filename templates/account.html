@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<table class="table table-bordered table-hover">
+	<thead>
+		<th>项目</th>
+		<th>数值</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>账户邮箱</td>
+			<td>{{ user.email }}</td>
+		</tr>
+		<tr>
+			<td>账户身份</td>
+			<td>{{ user.account_type }}</td>
+		</tr>
+		{% if user.account_type == '教师' %}
+		<tr>
+			<td>学生数目</td>
+			<td>{{ num }}</td>
+		</tr>
+		{%endif%}
+		<tr>
+			<td>账户编号</td>
+			<td>{{ user.id }}</td>
+		</tr>
+		<tr>
+			<td>随机串码</td>
+			<td>{{ user.active_code }}</td>
+		</tr>
+		<tr>
+			<td>通过验证</td>
+			<td>{{ user.active_state }}</td>
+		</tr>
+	</tbody>	
+</table>
+{% endblock %}

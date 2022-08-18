@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>找回你在未来校园平台的账号</title>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                background-color: #ECECEC;
+            }
+
+            .container {
+                width: 800px;
+                margin: 50px auto;
+            }
+
+            .header {
+                height: 80px;
+                background-color: #49bcff;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                padding-left: 30px;
+            }
+
+            .header h2 {
+                padding-top: 25px;
+                color: white;
+            }
+
+            .content {
+                background-color: #fff;
+                padding-left: 30px;
+                padding-bottom: 30px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .content h2 {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .content p {
+                padding-top: 10px;
+            }
+
+            .footer {
+                background-color: #fff;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                padding: 35px;
+            }
+
+            .footer p {
+                color: #747474;
+                padding-top: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>future.Campus.Platform</h2>
+            </div>
+            <div class="content">
+                <h2>找回你在未来校园平台的账号</h2>
+                <p>有人正在尝试修改您的未来校园平台账号的密码。点击这个链接来确认您的找回密码申请：<b><span th:text=""><a href="${link}">${link}</a></span></b></p>
+                <p>（可能需要连接到校园网才能正常访问）</p>
+                <p>如果您没有发起过修改密码申请，请不要点击下方的链接并直接删除这封邮件。</p>
+                <p>点击该链接后，您的密码将会被修改为：<b>{password}</b></p>
+                <br>
+                <p></p>
+                <p>如果为您的账号发起的修改密码申请过于频繁，我们将为您的账号禁用找回密码功能以确保您的账号安全。</p>
+                <p>如果您在使用未来校园平台时遇到问题，可以发邮件来联系管理员。<br><br>管理员的 Email 是 <b>aynxul03@gmail.com</b></p>
+            </div>
+            <div class="footer">
+                <p>此邮件由网站后端邮件引擎自动发送，请勿直接回复。</p>
+                <p>请注意账号安全，设置高强度密码并定期修改。不要将账号出借给他人！</p>
+                <p>请确保您不会丢失对该邮箱的访问权，它是找回密码的唯一途径！</p>
+                <p>© 2022 future.Campus.Platform</p>
+            </div>
+        </div>
+    </body>
+
+</html>

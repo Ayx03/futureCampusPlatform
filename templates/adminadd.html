@@ -1,0 +1,54 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}adminPanel(f.C.P){% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			</button>
+			<a href="/admin/control" class="navbar-brand">adminPanel(f.C.P)</a>
+		</div>
+		<div class="navbar-collapse collapse">				
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/">回到前台</a></li>
+				<li><a href="/logout">退出管理后台</a></li>
+		    </ul>
+		    <ul class="nav navbar-nav">
+				<li><a href="/admin/control">控制台</a></li>
+				<li><a href="/admin/add">新增用户</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h3>新增用户</h3><br>
+	<code>在此处新增用户没有密码长度限制，使用弱密码时请提醒用户修改密码！如果使用无效的邮箱，用户将无法找回密码！</code>
+	{% for message in get_flashed_messages() %}
+		<div class="alert alert-warning">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ message }}
+		</div>
+	{% endfor %}
+	{{ wtf.quick_form(form) }}
+	<button class="btn btn-info csoon">批量添加</button>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+$(document).ready(function() {
+	$('.csoon').click(function() {
+		alert('该功能即将上线，敬请期待。')
+	});
+});
+</script>
+{% endblock %}
