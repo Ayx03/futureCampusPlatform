@@ -1,6 +1,5 @@
 # future.Campus.Platform
-
-## 基于 Python 3 + Flask 的学生信息管理系统
+基于 Python 3 + Flask 的学生信息管理系统
 
 [//]: # (&#40;相应的安卓版在 future.Campus.Platform_app 库&#41;)
 
