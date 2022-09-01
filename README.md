@@ -1,6 +1,8 @@
 # future.Campus.Platform
 基于 Python 3 + Flask 的学生信息管理系统
 
+Original: [ljhshuai/Flasky](https://github.com/ljhshuai/Flasky)
+
 [//]: # (&#40;相应的安卓版在 future.Campus.Platform_app 库&#41;)
 
 ## 技术栈
@@ -14,13 +16,13 @@
   
 ## 特色功能
 
-- 用户注册与密码找回（验证邮箱），所有密码不可逆加密后存储
+- 用户注册与密码找回（验证邮箱），所有密码不可逆加密后存储（可以自行为散列算法加盐）
 ![image](https://user-images.githubusercontent.com/75155322/185481346-498a819c-ef97-4c16-88c9-51d9976c58ff.png)
 - 教师，学生，管理员拥有不同权限
 ![image](https://user-images.githubusercontent.com/75155322/185481401-b28cca3a-d1dc-4a70-8c57-970444b301ba.png)
 - 教师：对学生增删查改，展示自己所管理的学生信息
 ![image](https://user-images.githubusercontent.com/75155322/185481525-d495faf7-fb4a-4210-83cb-ad7619034f6f.png)
-- 学生： 选择教师以参看教师所管理的学生信息，但是不能操作
+- 学生： 选择教师以参看教师所管理的学生信息，但是不能进行增加/删除/修改操作
 ![image](https://user-images.githubusercontent.com/75155322/185482046-f9d05036-9837-49e6-be4e-4429264dc379.png)
 - 管理员：管理所有用户数据，可以新增、封禁、解封以及删除用户账号
 ![image](https://user-images.githubusercontent.com/75155322/185481903-529186df-a4a5-4a63-8e60-c4f8d9ee95ce.png)
@@ -46,7 +48,7 @@
 
 - 登录管理员账户：访问路径 `/phpyouradmin`，账户是 `aynxul03@gmail.com` 密码是 `aynxul03`
   
-## Flasky 曾经存在的不足之处
+## [Flasky](https://github.com/ljhshuai/Flasky) 曾经存在的不足之处
 
 - ~~储存在数据库中的密码未进行不可逆加密，存在被窃取后导致用户其他网站的账号也被盗的风险。~~
   - 已对除管理员密码外的所有密码进行不可逆加密
