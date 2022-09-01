@@ -43,10 +43,10 @@ Original: [ljhshuai/Flasky](https://github.com/ljhshuai/Flasky)
 
 - 输入 ```python app.py runserver``` 运行
 
-- 注：若需使用邮件功能则需修改 `config.py` 中邮箱相关配置
+- 为了使用户能正常收到激活及找回密码邮件，请在 `config.py` 中配置好 SMTP 服务器地址、端口号以及账号密码。
   - 如使用 QQ 邮箱需要生成授权码而非使用 QQ 密码。QQ 邮箱对普通用户的发邮件限制是每分钟限发 40 封，每天限发 100 封。出现注册和找回密码次数每天加起来超过 100 人次时需要多个邮箱轮换发件。（当然，这不太可能发生）
 
-- 登录管理员账户：访问路径 `/phpyouradmin`，账户是 `aynxul03@gmail.com` 密码是 `aynxul03`
+- 登录管理员后台：访问路径 `/phpyouradmin`，默认账号密码为 `aynxul03@gmail.com` / `aynxul03`，可自行在 config.py 中修改
   
 ## [Flasky](https://github.com/ljhshuai/Flasky) 曾经存在的不足之处
 
@@ -54,4 +54,4 @@ Original: [ljhshuai/Flasky](https://github.com/ljhshuai/Flasky)
   - 已对除管理员密码外的所有密码进行不可逆加密
 
 - ~~所有 Python 代码全部集中于 app.py 一个文件中，应用未模块化。~~ 
-  - 已作初步区分
+  - 其实就把一些配置分离到了 `config.py` 中
